@@ -702,3 +702,690 @@ section {
     white-space: nowrap;
     line-height: 1.2;
 }
+
+/* About section with developer illustration */
+
+#about {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: floatDeveloper 3s ease-in-out infinite;
+}
+
+.about-illustration img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    filter: drop-shadow(0 15px 25px rgba(25, 10, 45, 0.2));
+}
+
+@keyframes floatDeveloper {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+@media (max-width: 700px) {
+    #about {
+        grid-template-columns: 1fr;
+    }
+
+    .about-illustration img {
+        max-width: 280px;
+    }
+}
+
+/* Fix About section layout */
+
+#about {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-rows: auto auto;
+    align-content: center;
+    align-items: center;
+    column-gap: 50px;
+    row-gap: 20px;
+}
+
+#about .eyebrow {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+}
+
+#about h2 {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0 0 10px;
+}
+
+/* Keep the About text together on the left */
+#about .about-content {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+#about .about-illustration {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about .about-illustration img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+}
+
+@media (max-width: 700px) {
+    #about {
+        grid-template-columns: 1fr;
+    }
+
+    #about .about-content,
+    #about .about-illustration {
+        grid-column: 1;
+        grid-row: auto;
+    }
+}
+
+/* Skills - illustration and text layout */
+
+.skills-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.skills-modern > h2 {
+    margin-bottom: 0;
+}
+
+.skills-intro {
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.skill-row {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: center;
+    gap: 55px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.skill-visual {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    background: #302044;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 30px rgba(25, 10, 45, 0.18);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.skill-row:hover .skill-visual {
+    transform: translateY(-6px) rotate(-3deg);
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.3);
+}
+
+.skill-visual span {
+    color: #00e5ff;
+    font-size: 48px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.web-visual {
+    background: linear-gradient(135deg, #402451, #6c397e);
+}
+
+.database-visual {
+    background: linear-gradient(135deg, #292044, #50336c);
+}
+
+.soft-visual {
+    background: linear-gradient(135deg, #50336c, #a65b9b);
+}
+
+.skill-description h3 {
+    font-size: 23px;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+    color: #00e5ff;
+}
+
+.skill-description p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #ffffff;
+    max-width: 700px;
+}
+
+@media (max-width: 700px) {
+    .skill-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    .skill-visual {
+        width: 160px;
+        height: 160px;
+    }
+
+    .skill-visual span {
+        font-size: 38px;
+    }
+
+    .skill-description h3 {
+        font-size: 20px;
+    }
+
+    .skill-description p {
+        font-size: 16px;
+    }
+}
+
+/* ==================================
+   GLASSMORPHISM EDUCATION SECTION
+================================== */
+
+.education-modern {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+}
+
+.education-modern > h2 {
+    margin-bottom: 0;
+}
+
+.education-intro {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.education-glass-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 12px;
+}
+
+.education-glass-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    min-width: 0;
+    padding: 28px;
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 22px;
+
+    box-shadow: 0 8px 30px rgba(32, 12, 53, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.education-glass-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.17);
+    border-color: #00e5ff;
+    box-shadow: 0 12px 35px rgba(0, 229, 255, 0.15);
+}
+
+.education-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.education-details {
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.education-year {
+    display: inline-block;
+    color: #00e5ff;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.education-details h3 {
+    color: #ffffff;
+    font-size: 21px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.education-details p {
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+    overflow-wrap: anywhere;
+}
+
+.education-details strong {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.education-number {
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 1;
+
+    color: rgba(255, 255, 255, 0.07);
+    pointer-events: none;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .education-glass-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .education-modern {
+        padding: 40px 6%;
+    }
+
+    .education-glass-card {
+        gap: 14px;
+        padding: 22px 18px;
+        border-radius: 18px;
+    }
+
+    .education-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 21px;
+    }
+
+    .education-details h3 {
+        font-size: 18px;
+    }
+
+    .education-details p {
+        font-size: 14px;
+    }
+
+    .education-number {
+        font-size: 42px;
+    }
+}
+
+/* =================================
+   CERTIFICATIONS - BRANCHING TREE
+================================= */
+
+.cert-tree-section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+}
+
+.cert-tree-section > h2 {
+    margin-bottom: 0;
+}
+
+.cert-tree-intro {
+    color: #ffffff;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.cert-tree {
+    width: 100%;
+    max-width: 1150px;
+    margin: 15px auto 0;
+}
+
+/* Main root node */
+
+.cert-tree-root {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 18px 28px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    background: rgba(45, 24, 67, 0.72);
+    border: 1px solid #00e5ff;
+    border-radius: 18px;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow: 0 0 22px rgba(0, 229, 255, 0.12);
+    text-align: left;
+}
+
+.root-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+
+    background: rgba(0, 229, 255, 0.12);
+    border-radius: 14px;
+
+    color: #00e5ff;
+    font-size: 28px;
+}
+
+.cert-tree-root h3 {
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.cert-tree-root p {
+    color: #e9dcf4;
+    font-size: 14px;
+}
+
+/* Connector from root to branches */
+
+.cert-tree-trunk {
+    width: 2px;
+    height: 38px;
+    margin: 0 auto;
+
+    background: linear-gradient(
+        to bottom,
+        #00e5ff,
+        rgba(0, 229, 255, 0.2)
+    );
+}
+
+/* Two main branches */
+
+.cert-tree-branches {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    position: relative;
+}
+
+.cert-branch {
+    min-width: 0;
+    position: relative;
+    padding: 22px;
+
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 20px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Branch category heading */
+
+.branch-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid rgba(0, 229, 255, 0.35);
+}
+
+.branch-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+
+    border-radius: 14px;
+    background: rgba(0, 229, 255, 0.12);
+
+    color: #00e5ff;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.branch-heading h3 {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+/* Individual certification nodes */
+
+.cert-node {
+    position: relative;
+    padding: 18px 18px 18px 24px;
+    margin: 0 0 15px 9px;
+
+    border-left: 2px solid rgba(0, 229, 255, 0.7);
+    border-radius: 0 14px 14px 0;
+
+    background: rgba(35, 18, 57, 0.48);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.cert-node:last-child {
+    margin-bottom: 0;
+}
+
+.cert-node::before {
+    content: "";
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+    left: -6px;
+    top: 24px;
+
+    background: #00e5ff;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.7);
+}
+
+.cert-node:hover {
+    transform: translateX(5px);
+    background: rgba(0, 229, 255, 0.09);
+    border-left-color: #00e5ff;
+}
+
+.cert-node-year {
+    display: inline-block;
+    color: #00e5ff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+.cert-node h4 {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 7px;
+    overflow-wrap: anywhere;
+}
+
+.cert-node p {
+    color: #e9dcf4;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 800px) {
+    .cert-tree-branches {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .cert-branch {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 500px) {
+    .cert-tree-root {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .cert-tree-root h3 {
+        font-size: 15px;
+    }
+
+    .root-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .branch-heading h3 {
+        font-size: 18px;
+    }
+
+    .cert-node {
+        padding: 16px 14px 16px 20px;
+    }
+}
+
+/* FIX: About section unwanted vertical gaps */
+
+#about {
+    display: block !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 35px 8% !important;
+    margin: 0 !important;
+}
+
+/* GET TO KNOW ME */
+#about .eyebrow {
+    display: block !important;
+    margin: 0 0 10px !important;
+    padding: 0 !important;
+    line-height: 1.3 !important;
+}
+
+/* About Me heading */
+#about h2 {
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+    line-height: 1.3 !important;
+}
+
+/* About paragraph */
+#about .about-content {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#about .about-content p:not(.eyebrow) {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.6 !important;
+}
+
+/* Remove default spacing from direct children */
+#about > * {
+    margin-top: 0 !important;
+}
+
+/* Active navigation link */
+.navbar a.active {
+    color: #00e5ff !important;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.45);
+}
+
+/* Smooth colour transition */
+.navbar a {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+section[hidden] {
+    display: none !important;
+}
+section[hidden] {
+    display: none !important;
+}
+
+/* Final fix: hide inactive sections */
+body > section[hidden],
+body > #about[hidden] {
+    display: none !important;
+}
