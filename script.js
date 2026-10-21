@@ -15,7 +15,15 @@ function showSection(sectionId) {
     sections.forEach((section) => {
         section.hidden = true;
     });
+const projectsButton = document.querySelector(".view-projects-btn");
 
+if (projectsButton) {
+    projectsButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        showSection("projects");
+        history.replaceState(null, "", "#projects");
+    });
+}
     // Show only the selected section
     target.hidden = false;
 
