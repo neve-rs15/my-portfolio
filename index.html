@@ -31,7 +31,10 @@
 <section id="home" class="hero home-modern">
  
 <div class="home-text">
-  <h1>Hello, I'm Nevethaa R S!</h1>
+  
+<h1 class="typing-heading">
+    <span id="typingText"></span>
+</h1>
 
   <h2>Aspiring Developer <span>| Creative Thinker</span></h2>
 
@@ -146,52 +149,93 @@
   </div>
 </section>
 
+
 <section id="skills" class="section skills-modern">
     <p class="eyebrow">WHAT I KNOW</p>
     <h2>My Skills</h2>
-    <p class="skills-intro">My technical skills and personal strengths.</p>
+    <p class="skills-intro">Select a card to discover my skills.</p>
 
-    <div class="skill-row">
-        <div class="skill-visual code-visual">
-            <span>&lt;/&gt;</span>
-        </div>
-        <div class="skill-description">
-            <h3>PROGRAMMING</h3>
-            <p>Building logical solutions using C programming and Python, with a focus on problem-solving and learning new concepts.</p>
-        </div>
-    </div>
+    <div class="skills-flip-grid">
 
-    <div class="skill-row">
-        <div class="skill-visual web-visual">
-            <span>WEB</span>
+        <div class="skill-flip-card" tabindex="0" role="button"
+             aria-pressed="false" aria-label="Programming details">
+            <div class="skill-flip-inner">
+                <div class="skill-flip-front">
+                    <span class="skill-icon">&lt;/&gt;</span>
+                    <h3>PROGRAMMING</h3>
+                </div>
+                <div class="skill-flip-back">
+                    <h3>PROGRAMMING</h3>
+                    <p>Building logical solutions and developing problem-solving skills.</p>
+                    <ul>
+                        <li>C Programming</li>
+                        <li>Python</li>
+                        <li>Logical Thinking</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="skill-description">
-            <h3>WEB DEVELOPMENT</h3>
-            <p>Creating web pages using HTML, CSS and JavaScript, with an interest in responsive layouts and interactive experiences.</p>
-        </div>
-    </div>
 
-    <div class="skill-row">
-        <div class="skill-visual database-visual">
-            <span>DB</span>
+        <div class="skill-flip-card" tabindex="0" role="button"
+             aria-pressed="false" aria-label="Web development details">
+            <div class="skill-flip-inner">
+                <div class="skill-flip-front">
+                    <span class="skill-icon">WEB</span>
+                    <h3>WEB DEVELOPMENT</h3>
+                </div>
+                <div class="skill-flip-back">
+                    <h3>WEB DEVELOPMENT</h3>
+                    <p>Creating responsive websites and interactive experiences.</p>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="skill-description">
-            <h3>DATABASE MANAGEMENT</h3>
-            <p>Learning database management systems and how structured data can be organised and managed efficiently.</p>
-        </div>
-    </div>
 
-    <div class="skill-row">
-        <div class="skill-visual soft-visual">
-            <span>✦</span>
+        <div class="skill-flip-card" tabindex="0" role="button"
+             aria-pressed="false" aria-label="Database management details">
+            <div class="skill-flip-inner">
+                <div class="skill-flip-front">
+                    <span class="skill-icon">DB</span>
+                    <h3>DATABASE MANAGEMENT</h3>
+                </div>
+                <div class="skill-flip-back">
+                    <h3>DATABASE MANAGEMENT</h3>
+                    <p>Learning how to organise, store and manage structured data.</p>
+                    <ul>
+                        <li>Database Concepts</li>
+                        <li>MongoDB Basics</li>
+                        <li>Data Organisation</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="skill-description">
-            <h3>SOFT SKILLS</h3>
-            <p>Teamwork, communication, leadership and creative problem-solving.</p>
+
+        <div class="skill-flip-card" tabindex="0" role="button"
+             aria-pressed="false" aria-label="Soft skills details">
+            <div class="skill-flip-inner">
+                <div class="skill-flip-front">
+                    <span class="skill-icon">✦</span>
+                    <h3>SOFT SKILLS</h3>
+                </div>
+                <div class="skill-flip-back">
+                    <h3>SOFT SKILLS</h3>
+                    <p>Working effectively with others and approaching challenges creatively.</p>
+                    <ul>
+                        <li>Teamwork</li>
+                        <li>Communication</li>
+                        <li>Leadership</li>
+                        <li>Creative Problem-solving</li>
+                    </ul>
+                </div>
+            </div>
         </div>
+
     </div>
 </section>
-
 
 
 <section id="education" class="section education-modern">

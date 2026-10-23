@@ -1572,3 +1572,736 @@ body > #about[hidden] {
     border-radius: 12px;
     margin-bottom: 15px;
 }
+
+/* Programming flip card */
+.programming-flip-row {
+    justify-content: center;
+}
+
+.skill-flip-card {
+    width: 280px;
+    height: 300px;
+    perspective: 1000px;
+    cursor: pointer;
+    outline: none;
+}
+
+.skill-flip-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
+}
+
+.skill-flip-card.flipped .skill-flip-inner {
+    transform: rotateY(180deg);
+}
+
+.skill-flip-front,
+.skill-flip-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: linear-gradient(135deg, #30203f, #5b3674);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.skill-flip-front .skill-visual {
+    margin: 0;
+}
+
+.skill-flip-front p {
+    color: #00e5ff;
+    margin-top: 18px;
+}
+
+.skill-flip-back {
+    transform: rotateY(180deg);
+    align-items: flex-start;
+    text-align: left;
+}
+
+.skill-flip-back h3 {
+    color: #00e5ff;
+    margin-bottom: 10px;
+}
+
+.skill-flip-back p,
+.skill-flip-back li {
+    line-height: 1.6;
+}
+
+.skill-flip-back ul {
+    padding-left: 20px;
+}
+
+.flip-hint {
+    color: #00e5ff;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.skill-flip-card:focus-visible {
+    outline: 3px solid #00e5ff;
+    outline-offset: 5px;
+}
+
+/* Four interactive skill flip cards */
+.skills-flip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 900px;
+    margin: 40px auto 0;
+}
+
+.skills-flip-grid .skill-flip-card {
+    width: 100%;
+    height: 300px;
+    min-width: 0;
+    perspective: 1000px;
+    cursor: pointer;
+    outline: none;
+}
+
+.skills-flip-grid .skill-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
+}
+
+.skills-flip-grid .skill-flip-card.flipped .skill-flip-inner {
+    transform: rotateY(180deg);
+}
+
+.skills-flip-grid .skill-flip-front,
+.skills-flip-grid .skill-flip-back {
+    position: absolute;
+    inset: 0;
+    box-sizing: border-box;
+    padding: 25px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #30203f, #5b3674);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.skills-flip-grid .skill-flip-front {
+    gap: 20px;
+}
+
+.skills-flip-grid .skill-icon {
+    width: 145px;
+    height: 145px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #30203f;
+    border: 2px solid #786581;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.15);
+    color: #00e5ff;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.skills-flip-grid .skill-flip-front h3 {
+    color: #00e5ff;
+    font-size: 17px;
+    margin: 0;
+}
+
+.skills-flip-grid .skill-flip-back {
+    transform: rotateY(180deg);
+    align-items: flex-start;
+    text-align: left;
+}
+
+.skills-flip-grid .skill-flip-back h3 {
+    color: #00e5ff;
+    margin: 0 0 10px;
+}
+
+.skills-flip-grid .skill-flip-back p,
+.skills-flip-grid .skill-flip-back li {
+    line-height: 1.6;
+}
+
+.skills-flip-grid .skill-flip-back ul {
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.skills-flip-grid .skill-flip-card:focus-visible {
+    outline: 3px solid #00e5ff;
+    outline-offset: 5px;
+}
+
+@media (max-width: 600px) {
+    .skills-flip-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .skills-flip-grid .skill-flip-card {
+        height: 280px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skills-flip-grid .skill-flip-inner {
+        transition: none;
+    }
+}
+
+/* FIX: Skill cards overlapping */
+#skills .skills-flip-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 28px !important;
+    width: 100% !important;
+    max-width: 900px !important;
+    margin: 40px auto !important;
+    align-items: stretch !important;
+}
+
+#skills .skills-flip-grid .skill-flip-card {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: 300px !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    perspective: 1000px !important;
+}
+
+#skills .skills-flip-grid .skill-flip-inner {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform-style: preserve-3d !important;
+}
+
+#skills .skills-flip-grid .skill-flip-front,
+#skills .skills-flip-grid .skill-flip-back {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+}
+
+#skills .skills-flip-grid .skill-flip-card.flipped .skill-flip-inner {
+    transform: rotateY(180deg) !important;
+}
+
+@media (max-width: 600px) {
+    #skills .skills-flip-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+}
+
+/* Education cards - smooth hover effect */
+.education-glass-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+/* Subtle glow on hover */
+.education-glass-card:hover,
+.education-glass-card:focus-within,
+.education-glass-card:focus {
+    transform: translateY(-8px);
+    border-color: #00e5ff;
+    box-shadow: 0 12px 30px rgba(0, 229, 255, 0.18);
+}
+
+/* Reveal a soft glow */
+.education-glass-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        rgba(0, 229, 255, 0.10),
+        transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.education-glass-card:hover::before,
+.education-glass-card:focus-within::before {
+    opacity: 1;
+}
+
+/* Make the content stand out slightly */
+.education-glass-card .education-details {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.35s ease;
+}
+
+.education-glass-card:hover .education-details,
+.education-glass-card:focus-within .education-details {
+    transform: translateX(5px);
+}
+
+/* Highlight the icon */
+.education-glass-card .education-icon {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.35s ease;
+}
+
+.education-glass-card:hover .education-icon {
+    transform: scale(1.08);
+}
+
+.education-glass-card .education-number {
+    transition: color 0.35s ease;
+}
+
+.education-glass-card:hover .education-number {
+    color: rgba(0, 229, 255, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .education-glass-card,
+    .education-glass-card * {
+        transition: none !important;
+    }
+}
+
+/* Education cards: reveal details on hover */
+.education-glass-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 170px;
+    transition: min-height 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+/* Keep the icon and year visible */
+.education-glass-card .education-icon,
+.education-glass-card .education-year,
+.education-glass-card .education-number {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hide the details initially */
+.education-glass-card .education-details h3,
+.education-glass-card .education-details p,
+.education-glass-card .education-details strong {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease,
+                transform 0.3s ease;
+}
+
+/* Expand the card when hovering */
+.education-glass-card:hover,
+.education-glass-card:focus-within {
+    min-height: 230px;
+    border-color: #00e5ff;
+    box-shadow: 0 12px 30px rgba(0, 229, 255, 0.18);
+}
+
+/* Reveal the remaining information */
+.education-glass-card:hover .education-details h3,
+.education-glass-card:hover .education-details p,
+.education-glass-card:hover .education-details strong,
+.education-glass-card:focus-within .education-details h3,
+.education-glass-card:focus-within .education-details p,
+.education-glass-card:focus-within .education-details strong {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger the popup effect slightly */
+.education-glass-card .education-details h3 {
+    transition-delay: 0.05s;
+}
+
+.education-glass-card .education-details p {
+    transition-delay: 0.10s;
+}
+
+.education-glass-card .education-details strong {
+    transition-delay: 0.15s;
+}
+
+/* Mobile: show details without requiring hover */
+@media (hover: none) {
+    .education-glass-card .education-details h3,
+    .education-glass-card .education-details p,
+    .education-glass-card .education-details strong {
+        opacity: 1;
+        transform: none;
+    }
+
+    .education-glass-card {
+        min-height: 230px;
+    }
+}
+
+/* Compact education cards */
+.education-glass-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.education-glass-card {
+    min-height: 120px !important;
+    padding: 22px 24px !important;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: min-height 0.35s ease,
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* Keep details hidden initially */
+.education-glass-card .education-details h3,
+.education-glass-card .education-details p,
+.education-glass-card .education-details strong {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
+    margin-bottom: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease,
+                max-height 0.3s ease,
+                transform 0.3s ease,
+                margin 0.3s ease;
+}
+
+/* Popup-like reveal on hover */
+.education-glass-card:hover,
+.education-glass-card:focus-within {
+    min-height: 210px !important;
+    transform: translateY(-4px);
+    border-color: #00e5ff;
+    box-shadow: 0 10px 28px rgba(0, 229, 255, 0.18);
+}
+
+.education-glass-card:hover .education-details h3,
+.education-glass-card:hover .education-details p,
+.education-glass-card:hover .education-details strong,
+.education-glass-card:focus-within .education-details h3,
+.education-glass-card:focus-within .education-details p,
+.education-glass-card:focus-within .education-details strong {
+    opacity: 1;
+    max-height: 80px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    transform: translateY(0);
+}
+
+/* Responsive layout */
+@media (max-width: 650px) {
+    .education-glass-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* On touchscreens, keep information readable */
+@media (hover: none) {
+    .education-glass-card {
+        min-height: 205px !important;
+    }
+
+    .education-glass-card .education-details h3,
+    .education-glass-card .education-details p,
+    .education-glass-card .education-details strong {
+        opacity: 1;
+        max-height: 100px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        transform: none;
+    }
+}
+
+/* Learning Path reveal animation — preserve existing layout */
+
+.cert-tree-root {
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cert-tree-root:hover {
+    box-shadow: 0 0 22px rgba(0, 229, 255, 0.25);
+    border-color: #00e5ff;
+}
+
+.cert-tree-trunk,
+.cert-tree-branches,
+.cert-branch,
+.cert-node {
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.cert-tree.is-collapsed .cert-tree-trunk,
+.cert-tree.is-collapsed .cert-tree-branches {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.cert-tree.is-collapsed .cert-tree-trunk {
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.cert-tree.is-collapsed .cert-tree-branches {
+    transform: translateY(-12px);
+}
+
+.cert-tree.is-expanded .cert-tree-trunk {
+    animation: pathLineReveal 0.5s ease both;
+}
+
+.cert-tree.is-expanded .cert-branch {
+    animation: pathBranchReveal 0.5s ease both;
+}
+
+.cert-tree.is-expanded .cert-branch:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.cert-tree.is-expanded .cert-node {
+    animation: pathNodeReveal 0.45s ease both;
+}
+
+.cert-tree.is-expanded .cert-node:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.cert-tree.is-expanded .cert-node:nth-child(3) {
+    animation-delay: 0.24s;
+}
+
+@keyframes pathLineReveal {
+    from { transform: scaleY(0); transform-origin: top; }
+    to { transform: scaleY(1); transform-origin: top; }
+}
+
+@keyframes pathBranchReveal {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pathNodeReveal {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cert-tree *,
+    .cert-tree *::before,
+    .cert-tree *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Profile photo effects */
+.home-image-wrap {
+    animation: profileFloat 4s ease-in-out infinite;
+    perspective: 1000px;
+}
+
+.home-image-wrap img {
+    transition: transform 0.25s ease, box-shadow 0.4s ease;
+    box-shadow:
+        0 0 12px rgba(0, 229, 255, 0.35),
+        0 0 28px rgba(190, 100, 255, 0.25);
+}
+
+/* Animated cyan-purple glow */
+.home-image-wrap:hover img {
+    box-shadow:
+        0 0 18px rgba(0, 229, 255, 0.75),
+        0 0 38px rgba(190, 100, 255, 0.65);
+}
+
+@keyframes profileFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-image-wrap {
+        animation: none;
+    }
+}
+
+.typing-heading {
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .typing-heading {
+        white-space: normal;
+    }
+}
+
+
+body > section.section-animate {
+    animation: sectionEnter 0.55s ease both;
+}
+
+@keyframes sectionEnter {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body > section.section-animate {
+        animation: none;
+    }
+}
+
+
+@keyframes sectionEnter {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    body > section {
+        animation: none;
+    }
+}
+
+/* Project cards - interactive hover effects */
+.projects-grid .project-card {
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+/* Cyan-purple glow */
+.projects-grid .project-card:hover {
+    transform: translateY(-8px);
+    border-color: #00e5ff;
+    box-shadow:
+        0 12px 28px rgba(0, 229, 255, 0.20),
+        0 0 18px rgba(190, 100, 255, 0.18);
+}
+
+/* Animated glow inside the card */
+.projects-grid .project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(0, 229, 255, 0.09) 50%,
+        transparent 80%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.65s ease;
+    pointer-events: none;
+}
+
+.projects-grid .project-card:hover::before {
+    transform: translateX(100%);
+}
+
+/* Project icon zoom */
+.projects-grid .project-icon {
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.projects-grid .project-card:hover .project-icon {
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.55));
+}
+
+/* Highlight project title */
+.projects-grid .project-card h3 {
+    transition: color 0.3s ease;
+}
+
+.projects-grid .project-card:hover h3 {
+    color: #00e5ff;
+}
+
+/* Keep content above the glow */
+.projects-grid .project-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .projects-grid .project-card,
+    .projects-grid .project-card * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .projects-grid .project-card::before {
+        display: none;
+    }
+}

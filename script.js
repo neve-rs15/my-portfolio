@@ -27,6 +27,11 @@ if (projectsButton) {
     // Show only the selected section
     target.hidden = false;
 
+target.classList.remove("section-animate");
+void target.offsetWidth;
+target.classList.add("section-animate");
+
+
     // Highlight the selected navigation link
     navLinks.forEach((link) => {
         const active = link.getAttribute("href") === "#" + sectionId;
@@ -56,3 +61,108 @@ navLinks.forEach((link) => {
 });
 
 showSection("home");
+
+
+document.querySelectorAll(".skills-flip-grid .skill-flip-card")
+    .forEach(function (card) {
+
+        function flipCard() {
+            const isFlipped = card.classList.toggle("flipped");
+            card.setAttribute("aria-pressed", String(isFlipped));
+        }
+
+        card.addEventListener("click", flipCard);
+
+        card.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                flipCard();
+            }
+        });
+    });
+
+const learningPath = document.querySelector(".cert-tree");
+const learningPathButton = document.querySelector(".cert-tree-root");
+
+if (learningPath && learningPathButton) {
+    learningPath.classList.add("is-collapsed");
+
+    learningPathButton.setAttribute("role", "button");
+    learningPathButton.setAttribute("tabindex", "0");
+    learningPathButton.setAttribute("aria-expanded", "false");
+
+    function toggleLearningPath() {
+        const expanded = learningPath.classList.toggle("is-expanded");
+
+        learningPath.classList.toggle("is-collapsed", !expanded);
+        learningPathButton.setAttribute("aria-expanded", String(expanded));
+    }
+
+    learningPathButton.addEventListener("click", toggleLearningPath);
+
+    learningPathButton.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleLearningPath();
+        }
+    });
+}
+
+const profileImageWrap = document.querySelector(".home-image-wrap");
+const profileImage = profileImageWrap?.querySelector("img");
+
+if (profileImageWrap && profileImage) {
+    profileImageWrap.addEventListener("mousemove", function (event) {
+        const rect = profileImageWrap.getBoundingClientRect();
+
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+
+        const rotateY = (x - 0.5) * 12;
+        const rotateX = (0.5 - y) * 12;
+
+        profileImage.style.transform =
+            `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    });
+
+    profileImageWrap.addEventListener("mouseleave", function () {
+        profileImage.style.transform = "";
+    });
+}
+
+
+const typingText = document.getElementById("typingText");
+
+if (typingText) {
+    const message = "Hello, I'm Nevethaa R S!";
+    let index = 0;
+    let deleting = false;
+
+    function typeHeading() {
+        typingText.textContent = message.substring(0, index);
+
+        let delay = deleting ? 60 : 100;
+
+        if (!deleting) {
+            index++;
+
+            if (index > message.length) {
+                deleting = true;
+                delay = 1500;
+            }
+        } else {
+            index--;
+
+            if (index < 0) {
+                index = 0;
+                deleting = false;
+                delay = 400;
+            }
+        }
+
+        setTimeout(typeHeading, delay);
+    }
+
+    typeHeading();
+}
+
