@@ -166,3 +166,27 @@ if (typingText) {
     typeHeading();
 }
 
+const homeSection = document.querySelector("#home");
+
+if (homeSection) {
+    const wave = document.createElement("div");
+    wave.className = "cursor-wave";
+    wave.setAttribute("aria-hidden", "true");
+    homeSection.prepend(wave);
+
+    homeSection.addEventListener("mousemove", function (event) {
+        const rect = homeSection.getBoundingClientRect();
+
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+        wave.style.setProperty("--mouse-x", `${x}%`);
+        wave.style.setProperty("--mouse-y", `${y}%`);
+    });
+
+    homeSection.addEventListener("mouseleave", function () {
+        wave.style.setProperty("--mouse-x", "50%");
+        wave.style.setProperty("--mouse-y", "50%");
+    });
+}
+
